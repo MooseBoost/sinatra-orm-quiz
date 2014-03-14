@@ -57,7 +57,7 @@ describe "ORMs" do
 
     describe "update" do
       before do
-        CrowdFundrCampaign.destory_all
+        CrowdFundrCampaign.destroy_all
       end
       
       it "changes the name of the campaign" do
@@ -66,7 +66,6 @@ describe "ORMs" do
 
         # Edit the campaign object and save it
         # TODO: Your solution goes here
-        binding.pry
         expect(CrowdFundrCampaign.first.name).to_not eq(campaign_name)
       end
     end
