@@ -66,6 +66,8 @@ describe "ORMs" do
 
         # Edit the campaign object and save it
         # TODO: Your solution goes here
+        campaign.update(name: "Tomato")
+
         expect(CrowdFundrCampaign.first.name).to_not eq(campaign_name)
       end
     end
@@ -73,7 +75,7 @@ describe "ORMs" do
     describe "destroy" do
       it "removes a record from the DB" do
         campaign = CrowdFundrCampaign.create(name: 'Slap Chop')
-
+        CrowdFundrCampaign.destroy_all
         # Delete the campaign record from the database
         # TODO: Your solution goes here
         expect(CrowdFundrCampaign.all.count).to eq(0)
