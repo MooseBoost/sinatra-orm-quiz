@@ -8,7 +8,10 @@ class CrowdFundrCampaign < ActiveRecord::Base
   end
 
   def self.book_campaigns
-    binding.pry
     where("name LIKE '%Book%'")
+  end
+
+  def self.latest_finish
+    order(finishing_date: :desc).take(1).first
   end
 end
