@@ -1,4 +1,4 @@
-class CrowdFundrCampaign
+class CrowdFundrCampaign < ActiveRecord::Base
   def __
     raise "Replace the __ with code to make the test pass"
   end

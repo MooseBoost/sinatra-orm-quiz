@@ -29,7 +29,7 @@ describe "ORMs" do
     describe "create" do
       it "should create a record for CrowdFundrCampaigns" do
         # TODO: Your solution goes here
-
+        CrowdFundrCampaign.create(name: "Hi")
         expect(CrowdFundrCampaign.all.count).to eq(1)
       end
     end
@@ -46,23 +46,27 @@ describe "ORMs" do
         )
 
         # TODO: Get these to pass
-        expect(campaign.__).to eq("Soylent")
-        expect(campaign.__).to eq("Free your body.")
-        expect(campaign.__).to eq(10000000)
-        expect(campaign.__).to eq(500000)
-        expect(campaign.__).to eq(Time.new(2013, 6, 15))
-        expect(campaign.__).to eq(Time.new(2013, 8, 30))
+        expect(campaign.name).to eq("Soylent")
+        expect(campaign.tagline).to eq("Free your body.")
+        expect(campaign.total_funding).to eq(10000000)
+        expect(campaign.funding_goal).to eq(500000)
+        expect(campaign.starting_date).to eq(Time.new(2013, 6, 15))
+        expect(campaign.finishing_date).to eq(Time.new(2013, 8, 30))
       end
     end
 
     describe "update" do
+      before do
+        CrowdFundrCampaign.destory_all
+      end
+      
       it "changes the name of the campaign" do
         campaign_name = "Sham-Wow"
         campaign = CrowdFundrCampaign.create(name: campaign_name)
 
         # Edit the campaign object and save it
         # TODO: Your solution goes here
-
+        binding.pry
         expect(CrowdFundrCampaign.first.name).to_not eq(campaign_name)
       end
     end
