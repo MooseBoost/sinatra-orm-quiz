@@ -59,7 +59,7 @@ describe "ORMs" do
       before do
         CrowdFundrCampaign.destroy_all
       end
-      
+
       it "changes the name of the campaign" do
         campaign_name = "Sham-Wow"
         campaign = CrowdFundrCampaign.create(name: campaign_name)
@@ -78,7 +78,6 @@ describe "ORMs" do
         CrowdFundrCampaign.destroy_all
         # Delete the campaign record from the database
         # TODO: Your solution goes here
-
         expect(CrowdFundrCampaign.all.count).to eq(0)
       end
     end
