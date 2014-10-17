@@ -10,15 +10,17 @@ RSpec.configure do |config|
   config.filter_run :focus
   config.include Rack::Test::Methods
   config.include Capybara::DSL
-  DatabaseCleaner.strategy = :transaction
-  DatabaseCleaner.clean_with(:truncation)
 
   config.before do
-    DatabaseCleaner.clean
+    ActiveRecord::Base.connection.tables.each do |t|
+      ActiveRecord::Base.connection.execute("DROP TABLE #{t}")
+    end
   end
 
   config.after do
-    DatabaseCleaner.clean
+    ActiveRecord::Base.connection.tables.each do |t|
+      ActiveRecord::Base.connection.execute("DROP TABLE #{t}")
+    end
   end
 
   config.order = 'default'

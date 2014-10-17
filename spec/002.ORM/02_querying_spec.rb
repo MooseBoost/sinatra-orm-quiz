@@ -14,7 +14,7 @@ describe "ORMs" do
       @path = File.dirname(__FILE__)
       @db = ActiveRecord::Base.connection
       ActiveRecord::Migrator.migrate('db/migrate')
-
+      
       now = Time.now
 
       @c1 = CrowdFundrCampaign.create(
