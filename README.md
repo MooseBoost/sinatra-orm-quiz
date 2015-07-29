@@ -1,7 +1,4 @@
----
-  languages: ruby
-  tags: orm, activerecord, assessment, sinatra, tdd, migrations, forms
----
+
 
 # Sinatra / ORM / Rack Assessment
 
